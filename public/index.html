@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>SSE demo</title>
+	</head>
+	<body>
+		<a href="new.html">new page</a>
+		<pre id="x">Intializing....</pre>
+
+	<script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	</body>
+</html>
+
+<script type="text/javascript">
+$(function() {
+	var es = new EventSource('http://127.0.0.1:8000/sseApi');
+	es.addEventListener('message',function(e){
+		//$('#x').append('\n'+e.data+'\n')
+		$('#x').html('\n'+e.data+'\n')
+	},false);
+})
+</script>
